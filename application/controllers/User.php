@@ -11,15 +11,15 @@ class User extends CI_Controller {
 			redirect('login');
 		}
 	}
-	
+
 	public function index()
 	{
-	
-		redirect('login');	
+
 		
+
 	}
-	
-	
-	
-	
+
+
+
+
 }
