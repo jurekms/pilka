@@ -11,11 +11,12 @@ class Welcome extends CI_Controller {
 			redirect('login');
 		}
 	}
+
 	
 	public function index()
 	{
-		
-		if($this->ion_auth->in_group('admin')) 
+
+		if($this->ion_auth->in_group('admin'))
 		{
 			$data['__menu']='/menu/adminMenuPartialView';
 			$data['__match']='/match/adminMatchPartialView';
@@ -26,15 +27,15 @@ class Welcome extends CI_Controller {
 			$data['__match']='/match/userMatchPartialView';
 		}
 
-		
+
 		$this->load->view('main_view',$data);
 	}
-	
+
 	public function logout()
 	{
 		$this->ion_auth->logout();
 		redirect('login');
 	}
-	
-	
+
+
 }
