@@ -3,7 +3,7 @@
     <i class="settings icon"></i>
     Moje dane
   </a>
-  <a class="item" href="<?php echo site_url('user/index');?>">
+  <a class="item" href="<?php echo site_url('userAdmin/userList');?>">
     <i class="users icon"></i>
     Użytkownicy
   </a>
@@ -15,7 +15,7 @@
     <i class="refresh icon"></i>
     Odśwież
   </a>
-  
+
   <a class="item" href="<?php echo site_url('welcome/logout');?>">
     <i class="sign out icon"></i>
     Wyloguj się
