@@ -3,7 +3,7 @@
     <i class="settings icon"></i>
     Moje dane
   </a>
-  <a class="item" href="<?php echo site_url('userAdmin/userList');?>">
+  <a class="item" >
     <i class="users icon"></i>
     Użytkownicy
   </a>
@@ -18,6 +18,23 @@
 
   <a class="item" href="<?php echo site_url('welcome/logout');?>">
     <i class="sign out icon"></i>
-    Wyloguj się
+    Wyloguj
   </a>
 </div>
+
+
+<script>
+
+
+
+  $("#menu > div.six.wide.column > div > a:nth-child(2)").click(function(){
+
+      $("#rest > div.six.wide.column").load("<?php echo site_url('userAdmin/userList');?>");
+  }
+
+)
+
+
+
+
+</script>

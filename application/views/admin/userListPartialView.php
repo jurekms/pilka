@@ -1,53 +1,59 @@
-<table class="ui celled selectable table">
+
+<div class="ui segments" >
+<div class="ui clearing segment">
+<table class="ui fixed single line celled table very compact striped selectable">
   <thead>
     <tr><th>Login</th>
     <th>Imie i nazwisko</th>
-    <th>Akcja</th>
+
   </tr></thead>
   <tbody>
-    <tr>
-      <td>JUREK</td>
-      <td>Jerzy</td>
-      <td>Maczenski</td>
-    </tr>
-    <tr>
-      <td>PIOTR</td>
-      <td>Piotrek</td>
-      <td>
-        <div class="ui label">
-          <i class="edit icon"></i>
-        </div>
-        <div class="ui label">
-          <i class="delete icon"></i>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>AGA</td>
-      <td>Agnieszka</td>
-      <td>Sarapata</td>
-    </tr>
+    <?php
+    foreach ($users as $user) {
+      echo('<tr>');
+      echo('<td>'.$user->username.'</td>');
+      echo('<td>'.$user->first_name.' '.$user->last_name.'</td>');
+      echo('</tr>');
+    }
+    ?>
   </tbody>
-  <tfoot>
-    <tr>
-      <th colspan="5">
-        <div class="ui right floated pagination borderless menu">
-            <?php if(isset($__pagination)) echo($__pagination); ?>
-        </div>
-      </th>
-    </tr>
-
-  </tfoot>
 </table>
+</div>
 
+<div class="ui clearing segment">
+  <?php if(isset($__pagination)) echo($__pagination); ?>
+</div>
+
+<div class="ui clearing segment ">
+  <button class="ui  right floated basic small button " id="user_add">
+    <i class="icon add user"></i>
+  DODAJ
+</button>
+<button class="ui  right floated basic small button " id="user_close">
+  <i class="icon sign out"></i>
+ZAMKNIJ
+</button>
+</div>
+
+
+
+</div>
 
 
 <script>
 
-$( ".table tbody tr td" ).click(function() {
-  alert($(this).text());
-})
+$(".pagination a").click(function() {
+  var urlPagination=$(this).attr("href");
+  $("#rest > div.six.wide.column").load(urlPagination);
 
+  return false;
+}
+)
+
+$("#user_close").click(function(){
+  $("#rest > div.six.wide.column").empty();
+
+})
 
 
 

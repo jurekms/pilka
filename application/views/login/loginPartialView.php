@@ -1,7 +1,4 @@
-﻿<div class="twelve wide column">
-</div>
-<div class="four wide column">
-	<div class="row">
+﻿
 		<div class="ui card">
 			<div class="content">
 				<div  class="ui form">
@@ -11,7 +8,7 @@
 					<div class="field">
 						<input type="text" id="password" placeholder="hasło">
 					</div>
-					
+
 				</div>
 			</div>
 			<div class="extra content">
@@ -25,18 +22,14 @@
 						Wpisz nazwę użytkownika i naciśnij ZRESETUJ, na podany podczas rejestracji adres email zostanie wysłana informacja
 					</div>
 				</div>
-			
+
 				<div class="ui icon message" id="wrong-pwd-info">
 					<i class="warning sign red icon"></i>
 					<div class="content">
 						błędny login lub hasło !
 						<a id="reset-pwd-link"> RESET HASŁA </a>
 					</div>
-				</div>
-				
 			</div>
-		
-		</div>
 	</div>
 </div>
 
@@ -81,16 +74,16 @@ $( "#reset-pwd-btn" ).click(function() {
         //do zmiennej errorText zostanie przekazany błąd
     }
 });
-  
-  
+
+
 });
 
 
 
 
- 
+
 $( "#login-btn" ).click(function() {
-  
+
   $.ajax({
     type     	: "POST",
     url      	: "<?php echo site_url('login/authorize');?>",
@@ -107,7 +100,7 @@ $( "#login-btn" ).click(function() {
 		else {
 			window.location.href = '<?php echo site_url('welcome/index');?>';
 		}
-			
+
 
     },
     complete: function() {
@@ -118,10 +111,9 @@ $( "#login-btn" ).click(function() {
         //do zmiennej errorText zostanie przekazany błąd
     }
 });
-  
+
 });
 
 
 
 </script>
-

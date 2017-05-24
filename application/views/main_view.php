@@ -24,16 +24,28 @@
 			<div class="one wide column">
 			  <?php if(isset($__info)) print_r($__info); ?>
 			</div>
-			<div class="four wide column">
-				<?php if(isset($__edit)) $this->load->view($__edit); ?>
+			<div class="six wide column">
+
 			</div>
 
 		</div>
 
+<div class="row" id="match_dashboard">
+<div class="one wide column"></div>
 
 	 <?php if(isset($__match)) $this->load->view($__match); ?>
+</div>
 
-	 <?php if(isset($__login)) $this->load->view($__login); ?>
+	 <div class="row" id="login_dashboard">
+		 <div class="twelve wide column"> </div>
+		 	<div class="four wide column">
+				 <?php if(isset($__login)) $this->load->view($__login); ?>
+			</div>
+	 </div>
+
+
+
+
 
 
 

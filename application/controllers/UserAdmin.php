@@ -18,35 +18,54 @@ class UserAdmin extends CI_Controller{
 
   }
 
-  public function userList()
+  public function userList($offset=0)
   {
-    $data['__edit']='admin\userListPartialView';
-    $data['__menu']='/menu/userMenuPartialView';
-    $data['__match']='/match/userMatchPartialView';
 
-    $this->load->library('pagination');
 
-    $config['base_url'] = site_url('userAdmin/pagin');
-    $config['total_rows'] = 20;
-    $config['per_page'] = 5;
+    $config['base_url'] = site_url('userAdmin/userList');
+
+
+
+    $config['full_tag_open']=' <div class="ui right floated pagination menu">';
+    $config['full_tag_close']='</div>';
+
+    $config['first_link'] = '<i class="backward icon"></i>';
+    $config['first_tag_open'] =  '<div class="item">';
+    $config['first_tag_close'] =  '</div>';
+
+    $config['last_link'] = '<i class="forward icon"></i>';
+    $config['last_tag_open'] =  '<div class="item">';
+    $config['last_tag_close'] =  '</div>';
+
+    $config['next_link']='<i class="chevron right icon"></i>';
     $config['next_tag_open'] =  '<div class="item">';
     $config['next_tag_close'] =  '</div>';
 
-    $config['last_tag_open'] =  '<div class="item">';
-    $config['last_tag_close'] =  '</div>';
+    $config['prev_link'] ='<i class="chevron left icon"></i>';
+    $config['prev_tag_open'] =  '<div class="item">';
+    $config['prev_tag_close'] =  '</div>';
+
+
     $config['cur_tag_open'] =  '<div class="item">';
     $config['cur_tag_close'] =  '</div>';
 
-    $config['first_tag_open'] =  '<div class="item">';
-    $config['first_tag_close'] =  '</div>';
     $config['num_tag_open'] = '<div class="item">';
     $config['num_tag_close'] = '</div>';
 
-    $this->pagination->initialize($config);
+    $users = $this->ion_auth->users()->result();
+    $config['total_rows'] = $this->ion_auth->num_rows();
+    $config['per_page'] = 5;
 
+    $this->ion_auth->limit(5);
+    $this->ion_auth->offset($offset);
+    $data['users'] = $this->ion_auth->users()->result();
+
+
+    $this->load->library('pagination', $config);
     $data['__pagination']=$this->pagination->create_links();
 
-    $this->load->view('main_view.php',$data);
+    $this->load->view('admin/userListPartialView.php',$data);
+    $this->ion_auth->logout();
   }
 
 
