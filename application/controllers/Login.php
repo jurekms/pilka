@@ -7,24 +7,24 @@ class Login extends CI_Controller {
 		parent::__construct();
 
 	}
-	
+
 	public function index()
 	{
 		$data['__login']='/login/loginPartialView';
 		$data['__match']='/match/matchPartialView';
 		$this->load->view('main_view',$data);
-	
+
 	}
-	
-	
+
+
 	public function authorize()
 	{
 		$loginName = $this->input->post('loginName');
 		$password = $this->input->post('password');
 		$resetPassword = $this->input->post('resetPassword');
-		
+
 		$this->ion_auth->login($loginName, $password);
-		
+
 		if ($this->ion_auth->logged_in())
 		{
 				$response['loggedIN']=1;
@@ -38,9 +38,9 @@ class Login extends CI_Controller {
 				exit;
 		}
 	}
-	
-	
-	
+
+
+
 		public function passwordReset()
 	{
 		if (!$this->ion_auth->logged_in())
@@ -50,7 +50,7 @@ class Login extends CI_Controller {
 				exit;
 		}
 	}
-	
-	
-	
+
+
+
 }

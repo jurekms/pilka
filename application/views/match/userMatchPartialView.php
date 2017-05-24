@@ -1,4 +1,4 @@
-<div class="relaxed row" id="mecze">
+
 		<div class="one wide column">
 			<img class="ui tiny circular image" src="/assets/pics/pilka.png">
 		</div>
@@ -10,4 +10,3 @@
 				<img class="ui tiny circular image" src="/assets/pics/pilka.png">
 			</a>
 		</div>
-</div>
