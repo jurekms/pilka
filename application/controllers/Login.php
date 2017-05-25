@@ -10,9 +10,15 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$data['__login']='/login/loginPartialView';
-		$data['__match']='/match/matchPartialView';
-		$this->load->view('main_view',$data);
+			if($this->input->is_ajax_request()) {
+				$this->load->view('logout_error_view');
+			}
+			else {
+				$data['__login']='/login/loginPartialView';
+				$data['__match']='/match/matchPartialView';
+				$this->load->view('main_view',$data);
+			}
+
 
 	}
 

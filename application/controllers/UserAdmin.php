@@ -65,7 +65,7 @@ class UserAdmin extends CI_Controller{
     $data['__pagination']=$this->pagination->create_links();
 
     $this->load->view('admin/userListPartialView.php',$data);
-    
+    $this->ion_auth->logout();
 
   }
 
