@@ -19,7 +19,8 @@ class User extends CI_Controller {
 
 	public function edit()
 	{
-
+		$this->load->helper('form');
+		$this->load->view('user/userEditPartialView');
 
 
 	}

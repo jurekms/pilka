@@ -31,7 +31,11 @@
 
       $("#rest > div.six.wide.column").load("<?php echo site_url('userAdmin/userList');?>");
   }
+)
 
+$("#menu > div.six.wide.column > div > a:nth-child(1)").click(function(){
+    $("#rest > div.six.wide.column").load("<?php echo site_url('userAdmin/edit');?>");
+  }
 )
 
 
