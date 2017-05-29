@@ -26,8 +26,8 @@ class UserAdmin extends CI_Controller{
 
 
 
-    $config['full_tag_open']=' <div class="ui right floated pagination menu">';
-    $config['full_tag_close']='</div>';
+    $config['full_tag_open']='<div class="ui clearing segment"> <div class="ui right floated pagination menu">';
+    $config['full_tag_close']='</div></div>';
 
     $config['first_link'] = '<i class="backward icon"></i>';
     $config['first_tag_open'] =  '<div class="item">';
@@ -65,7 +65,7 @@ class UserAdmin extends CI_Controller{
     $data['__pagination']=$this->pagination->create_links();
 
     $this->load->view('admin/userListPartialView.php',$data);
-    $this->ion_auth->logout();
+
 
   }
 

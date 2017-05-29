@@ -28,13 +28,12 @@
 
 
   $("#menu > div.six.wide.column > div > a:nth-child(2)").click(function(){
-
-      $("#rest > div.six.wide.column").load("<?php echo site_url('userAdmin/userList');?>");
+      $("#rest > div.six.wide.column").load("<?php echo site_url('user/userList');?>");
   }
 )
 
 $("#menu > div.six.wide.column > div > a:nth-child(1)").click(function(){
-    $("#rest > div.six.wide.column").load("<?php echo site_url('userAdmin/edit');?>");
+    $("#rest > div.six.wide.column").hide().empty().load("<?php echo site_url('user/editByUser');?>").fadeIn('500');
   }
 )
 

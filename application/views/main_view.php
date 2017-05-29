@@ -5,9 +5,9 @@
 		<title>Piłka</title>
 		<link rel="stylesheet" href="/assets/semantic/semantic.min.css" >
 		<link rel="stylesheet" href="/assets/css/pilka.css">
-		<script src="/assets/semantic/jquery-1.12.3.min.js"></script>
+		<script src="/assets/semantic/jquery-3.2.1.min.js"></script>
 		<script src="/assets/semantic/components/transition.js"></script>
-		
+
 	</head>
 <body id="box-warp">
 
@@ -28,7 +28,7 @@
 		<div class="one wide column">
 			  <?php if(isset($__info)) print_r($__info); ?>
 		</div>
-		<div class="six wide column">
+		<div class="six wide column" id="edit_dashboard">
 		</div>
 	</div>
 

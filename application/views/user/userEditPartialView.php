@@ -1,84 +1,104 @@
 
 <div class="ui blue segments" >
   <div class="ui clearing segment">
+
+
     <?php
-     echo(form_open('userAdmin/edit', 'class="ui form"'));
-
+     echo(form_open('', array('class' => 'ui form')));
      ?>
-
-
-
-
-     <h4 class="ui dividing header">Dane użytkownika</h4>
+     <h4 class="ui dividing header">Dane użytkownika </h4>
 
        <div class="fields">
-
          <div class="six wide field">
            <label>login</label>
            <?php echo(form_input(array(
-             'name'          => 'shipping[first-name]',
+             'name'          => 'username',
              'type'            => 'text',
-             'value'         => '',
-             'color'      =>'red',
-             'placeholder'  =>  'login'
+             'readonly' => 'true',
+             'value'         => $user->username
+
              )));?>
          </div>
 
          <div class="ten wide field">
-           <label>email</label>
+           <label class="label" >email</label>
+           <div class="ui disabled input">
              <?php echo(form_input(array(
-               'name'          => 'shipping[last-name]',
+               'name'          => 'email',
                'type'            => 'email',
-               'value'         => '',
-               'placeholder'  =>  'email'
+               'placeholder'   =>'adres email',
+               'value'         => $user->email
                )));?>
            </div>
          </div>
-         <div class="two fields">
 
+         </div>
+
+
+         <div class="two fields">
+           <div class="field">
+             <label>Hasło</label>
+             <?php echo(form_password(array(
+               'name'          => 'password',
+               'type'            => 'password',
+               'value'         => "         "
+               )));?>
+           </div>
+
+           <div class="field">
+             <label>Powtórz hasło</label>
+               <?php echo(form_password(array(
+                 'name'          => 'password_comfirmation',
+                 'type'            => 'password',
+                 'value'         => "         "
+                 )));?>
+             </div>
+           </div>
+
+
+         <div class="two fields">
            <div class="field">
              <label>Imię</label>
              <?php echo(form_input(array(
-               'name'          => 'shipping[first-name]',
+               'name'          => 'first_name',
                'type'            => 'text',
-               'value'         => '',
-               'placeholder'  =>  'name'
+               'value'         => $user->first_name
                )));?>
            </div>
 
            <div class="field">
              <label>Nazwisko</label>
                <?php echo(form_input(array(
-                 'name'          => 'shipping[last-name]',
+                 'name'          => 'last_name',
                  'type'            => 'text',
-                 'value'         => '',
-                 'placeholder'  =>  'name'
+                 'value'         => $user->last_name
                  )));?>
              </div>
            </div>
 
+
+
            <div class="ui right floated tiny buttons">
-             <button class="ui button">WYJDŹ</button>
+             <button class="ui button" id="user_cancel">WYJDŹ</button>
              <div class="or" data-text="lub"></div>
-             <button class="ui positive button">ZAPISZ</button>
+             <button class="ui positive button" id="user_save">ZAPISZ</button>
            </div>
 
-
+            <?php echo(form_close()); ?>
 
        </div>
 
-
-
-
-     <?php
-
-
-
-
-
-     echo(form_close());
-     ?>
-
-
-  </div>
 </div>
+
+<script>
+$("#user_cancel").click(function(){
+  $("#rest > div.six.wide.column").empty();
+})
+
+$("#user_save").click(function(){
+  
+  $("#edit_dashboard").load("<?php echo site_url('user/editByUser');?>").fadeIn('500');
+})
+
+
+</script>
