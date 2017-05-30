@@ -77,12 +77,12 @@
              </div>
            </div>
 
-
+           <div class="ui error message"></div>
 
            <div class="ui right floated tiny buttons">
-             <button class="ui orange button" id="user_cancel">WYJDŹ</button>
+             <div class="ui orange button" id="user_cancel">WYJDŹ</div>
              <div class="or" data-text="lub"></div>
-             <button class="ui positive button" id="user_save">ZAPISZ</button>
+             <div class="ui positive submit button" id="user_save">ZAPISZ</div>
            </div>
 
 
@@ -102,13 +102,38 @@ $("#user_cancel").click(function(){
   $("#edit_dashboard").empty();
 })
 
-$("#user_save").click(function(){
+$("#user_save1").click(function(){
 
-  $("#edit_dashboard").empty().load("<?php echo site_url('user/editByUser');?>");
+  $("#edit_dashboard1").empty().load("<?php echo site_url('user/editByUser');?>");
+
 })
 
-
-
+$("#edit_dashboard > div > div > form").form({
+    on: 'blur1',
+    fields: {
+        email: {
+            identifier: 'email',
+            rules: [{
+                type: 'empty',
+                prompt: 'pole nie może być puste'
+            }]
+        },
+        password: {
+            identifier: 'password',
+            rules: [{
+                type: 'empty',
+                prompt: 'pole nie może być puste'
+            }]
+        },
+        password_comfirmation: {
+            identifier: 'password_comfirmation',
+            rules: [{
+                type: 'empty',
+                prompt: 'pole nie może być puste'
+            }]
+        }
+    }
+});
 
 
 </script>
