@@ -1,5 +1,5 @@
 
-<div class="ui blue segments" >
+<div class="ui segments" >
   <div class="ui clearing segment">
 
 
@@ -21,16 +21,17 @@
          </div>
 
          <div class="ten wide field">
-           <label class="label" >email</label>
-           <div class="ui disabled input">
+           <label>email</label>
+
              <?php echo(form_input(array(
                'name'          => 'email',
                'type'            => 'email',
                'placeholder'   =>'adres email',
                'value'         => $user->email
                )));?>
-           </div>
+               <div class="ui basic red pointing label">Pole email nie może byc puste !</div>
          </div>
+
 
          </div>
 
@@ -79,12 +80,18 @@
 
 
            <div class="ui right floated tiny buttons">
-             <button class="ui button" id="user_cancel">WYJDŹ</button>
+             <button class="ui orange button" id="user_cancel">WYJDŹ</button>
              <div class="or" data-text="lub"></div>
              <button class="ui positive button" id="user_save">ZAPISZ</button>
            </div>
 
+
+
+
+
             <?php echo(form_close()); ?>
+
+
 
        </div>
 
@@ -92,13 +99,16 @@
 
 <script>
 $("#user_cancel").click(function(){
-  $("#rest > div.six.wide.column").empty();
+  $("#edit_dashboard").empty();
 })
 
 $("#user_save").click(function(){
-  
-  $("#edit_dashboard").load("<?php echo site_url('user/editByUser');?>").fadeIn('500');
+
+  $("#edit_dashboard").empty().load("<?php echo site_url('user/editByUser');?>");
 })
+
+
+
 
 
 </script>

@@ -3,10 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Piłka</title>
-		<link rel="stylesheet" href="/assets/semantic/semantic.min.css" >
+
 		<link rel="stylesheet" href="/assets/css/pilka.css">
+
+		<link rel="stylesheet" href="/assets/semantic/semantic.min.css" >
+
+
+
 		<script src="/assets/semantic/jquery-3.2.1.min.js"></script>
-		<script src="/assets/semantic/components/transition.js"></script>
+		<script src="/assets/semantic/semantic.min.js"></script>
+
+
+
+
 
 	</head>
 <body id="box-warp">
@@ -26,6 +35,7 @@
 	<div class="row" id="rest">
 		<div class="one wide column"></div>
 		<div class="one wide column">
+
 			  <?php if(isset($__info)) print_r($__info); ?>
 		</div>
 		<div class="six wide column" id="edit_dashboard">
