@@ -75,11 +75,7 @@ class User extends CI_Controller {
 		$this->load->helper('form');
 		if($this->input->post('username'))
 		{
-
-
-			$arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
-
-			echo json_encode($arr);
+			echo json_encode(array('error'=>0 , 'error_msg'=>'Hasło nie może by , email został już użyty'));
 
 
 		}

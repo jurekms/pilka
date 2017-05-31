@@ -48,8 +48,8 @@
            </div>
          </div>
 
-         <div class="ui error small message"></div>
-         <div class="ui success small message"></div>
+         <div class="ui error small message" id="error_msg"></div>
+         <div class="ui success small message" id="success_msg"></div>
 
          <div class="ui right floated tiny buttons">
            <div class="ui orange button" id="user_cancel">WYJDŹ</div>
@@ -79,12 +79,26 @@ $("#user_cancel").click(function(){
 
 
 $('#edit_dashboard > div > div > form').form({
-  onSuccess($event, $fields) {
-    $.post("<?php echo site_url('user/editByUser');?>",$fields);
-    return false;
+  onSuccess: function(event, fields) {
+    $.post("<?php echo site_url('user/editByUser');?>",
+    fields,
+    function(data) {
+      $('#error_msg').hide();
+      $('#success_msg').hide();
+      if(data.error==0)
+      {
+        $('#success_msg').html(data.error_msg);
+      }
+      else
+      {
+        $('#error_msg').html(data.error_msg);
+        $('#error_msg').show();
+      }
+    }
+  ,'json');
+    event.preventDefault();
   },
   fields:{
-
     email: {
       identifier: 'email',
       rules: [
@@ -97,10 +111,7 @@ $('#edit_dashboard > div > div > form').form({
 
       ]
     }
-
-
   }
-
 })
 
 
