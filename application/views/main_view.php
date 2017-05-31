@@ -5,17 +5,10 @@
 		<title>Piłka</title>
 
 		<link rel="stylesheet" href="/assets/css/pilka.css">
-
 		<link rel="stylesheet" href="/assets/semantic/semantic.min.css" >
-
-
 
 		<script src="/assets/jquery/jquery-3.2.1.min.js"></script>
 		<script src="/assets/semantic/semantic.min.js"></script>
-
-
-
-
 
 	</head>
 <body id="box-warp">

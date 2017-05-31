@@ -73,8 +73,22 @@ class User extends CI_Controller {
 	public function editByUser()
 	{
 		$this->load->helper('form');
-		$data['user'] = $user = $this->ion_auth->user()->row();
-		$this->load->view('user/userEditPartialView',$data);
+		if($this->input->post('username'))
+		{
+
+
+			$arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+
+			echo json_encode($arr);
+
+
+		}
+		else
+		{
+			$data['user'] = $user = $this->ion_auth->user()->row();
+			$this->load->view('user/userEditPartialView',$data);
+		}
+
 	}
 
 
